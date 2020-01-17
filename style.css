@@ -26,7 +26,7 @@
 
 #playfield{
     background-color: white;
-    width: 300px;
+    width: 600px;
     height: 100%;
     padding: 1em;
 }
@@ -46,19 +46,19 @@
     background: green;
 }
 
-div#message{
-    width: 216px;
-    background: red;
-    height: 25px;
-    color: white;
-    border-radius: 5px;
-    border: black solid 2px;
-    display: none;
-    text-align: center;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-    font-size: 80%;
-    height: 50px;
-    padding-top: 2px;
-    margin-top: 1em;
+
+span {
+    padding: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    border: solid black 2px;
+    margin-left: 5px;
 }
 
+span.black {
+    background: black;
+}
+
+span.white {
+    background-color: white;
+}
