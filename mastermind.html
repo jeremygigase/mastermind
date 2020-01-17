@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mastermind</title>
+    <link rel="stylesheet" href=style.css>
+</head>
+<body>
+
+    <div class="container">
+        <section id="playfield">
+            <div class="oplossing">
+                <div id="sol1" class="circle"></div>
+                <div id="sol2" class="circle"></div>
+                <div id="sol3" class="circle"></div>
+                <div id="sol4" class="circle"></div>
+            </div> <!-- .oplossing -->
+
+            <div id="rijen">
+            </div>
+
+            <div class="werkblad">
+                <div id="rij_1">
+                    <div onclick="processClick(this.id)" id="g1_1" class="circle"></div>
+                    <div onclick="processClick(this.id)" id="g1_2" class="circle"></div>
+                    <div onclick="processClick(this.id)" id="g1_3" class="circle"></div>
+                    <div onclick="processClick(this.id)" id="g1_4" class="circle"></div>
+                </div>
+            </div> <!-- .werkblad -->
+
+            <div >
+                <button type="button" onclick="newRow()" id="check" class="button">
+                    Check
+                </button>
+            </div>
+
+            <div>
+                <button type="button" onclick="toonOplossing()" id="toonButton" class="button">
+                    Toon Oplossing
+                </button>
+            </div>
+
+            <!-- <div id="message">
+                <p>Already showed solution!</p>
+            </div> -->
+
+        </section> <!-- #playfield -->
+    </div> <!-- .container -->
+    <script src="mastermind.js"></script>
+</body>
+</html>
