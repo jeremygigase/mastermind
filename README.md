@@ -1,2 +1,2 @@
-# mastermind
-Mastermind in Javascript
+# Mastermind
+Mastermind in JavaScript
