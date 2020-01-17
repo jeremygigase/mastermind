@@ -1,12 +1,18 @@
+
+// Initialisation variables and let's
 let colors = ["red", "blue", "yellow", "green"];
 let row_number = 1;
 let clicked = 0;
 var oplossing = [];
 
+// Returns the second class of an element
 function get2ndClass(element) {
     return (element && element.classList.length>1) ? element.classList[1] : null;
 }
 
+// Checks if a circle already has a color if not gives it the first color of the colors array
+// Checks the color number higher then 3 thrn resets the number to 0
+// In both cases it gets sent to the function setBGcolor
 function processClick(id) {
 
     let element = document.getElementById(id);
@@ -25,6 +31,8 @@ function processClick(id) {
     }
 }
 
+// Checks what the previous color was
+// Then replaces it with the next one in the colors array
 function setBGColor (element , color_number){
 
     let color = colors[color_number];
@@ -36,6 +44,7 @@ function setBGColor (element , color_number){
     }
 }
 
+// Adds a new row with the colors the user gave
 function newRow (){
     row_number++;
     let div = document.createElement("div");
@@ -53,6 +62,8 @@ function newRow (){
 
 }
 
+
+// Creates a circle with the right color
 function createCircle (row_number, circle_number,color){
 
     let row = "rij_" + row_number;
@@ -63,6 +74,7 @@ function createCircle (row_number, circle_number,color){
     document.getElementById(row).appendChild(div);
 }
 
+// Creates 4 random numbers which will be used to choose the 4 random colors
 function random1_4(){
 
     for (i = 1; i < 5; i++) {
@@ -73,6 +85,7 @@ function random1_4(){
     //console.log(oplossing)
 }
 
+// Toggle between showing the solution and not showing it
 function toonOplossing () {
 
     // document.write(oplossing)
