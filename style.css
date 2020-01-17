@@ -62,3 +62,7 @@ span.black {
 span.white {
     background-color: white;
 }
+
+#restart {
+    display: block;
+}

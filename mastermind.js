@@ -69,9 +69,10 @@ function newRow (){
         createCircle(row_number, circle_number, color)
     }
 
-    console.log(user_solution)
+    //console.log(user_solution)
 
-    appendContent(row)
+    checkAnswer(row)
+    // appendContent()
 }
 
 
@@ -101,24 +102,18 @@ function toonOplossing () {
 
 
     if (clicked == 1) {
-            // Not show
-        for (i = 0; i < 4; i++)
-        {
-            let circle_number = i + 1
-            let circle = "sol" + circle_number;
-            let element = document.getElementById(circle);
-            let secondClass = get2ndClass(element)
-            element.classList.remove(secondClass);
-        }
+            // Not show solution
+            removeSolutionColors();
         clicked--
     } else
         {
-            // Show
+            // Shows solution
             showSolution();
             clicked++
     }
 }
 
+// Shows color of the solution
 function showSolution () {
     for (i = 0; i < 4; i++) {
         let circle_number = i + 1
@@ -126,10 +121,21 @@ function showSolution () {
         let element = document.getElementById(circle);
         element.classList.add(solution[i]);
     }
-
 }
 
-function appendContent( el_name) {
+// Removes colors of the solution
+function removeSolutionColors () {
+    for (i = 0; i < 4; i++)
+    {
+        let circle_number = i + 1
+        let circle = "sol" + circle_number;
+        let element = document.getElementById(circle);
+        let secondClass = get2ndClass(element)
+        element.classList.remove(secondClass);
+    }
+}
+
+function checkAnswer( el_name) {
 
     let white = 0;
     let black = 0;
@@ -160,6 +166,8 @@ function appendContent( el_name) {
 
 }
 
+// Shows dots that indicate how you've guessed
+// 4 black dots means you've won
 function feedback( black, white, el_name ) {
 
     if (black == 4) {
@@ -168,6 +176,7 @@ function feedback( black, white, el_name ) {
             createDot("black", el_name)
         }
         showSolution()
+        setNewGameButton()
         alert("You've won!")
     }
         else {
@@ -187,3 +196,61 @@ function createDot (color , el_name) {
     document.getElementById(el_name).appendChild(span);
 
 }
+
+// Toggle between check and new game button
+function setNewGameButton() {
+
+    let check = document.getElementById("check");
+    let restart = document.getElementById("restart");
+
+    check.style.display = "none";
+
+    /* if (restart.style.display == "none") {
+        check.style.display = "none";
+        restart.style.display = "block";
+    }
+    else
+        {
+        check.style.display = "block";
+        restart.style.display = "none";
+    } */
+}
+
+// Removes the rows from the previous game
+function removeOldRows() {
+
+    let to_delete_rows = row_number + 1
+
+    for (r = 2; r < to_delete_rows; r++){
+
+        let row = "rij_" + r;
+        let element = document.getElementById(row);
+        element.parentNode.removeChild(element);
+    }
+}
+
+function removeGuessColors () {
+    for (i = 0; i < 4; i++)
+    {
+        let circle_number = i + 1
+        let circle = "g1_" + circle_number;
+        let element = document.getElementById(circle);
+        let secondClass = get2ndClass(element)
+        element.classList.remove(secondClass);
+    }
+}
+
+function newGame(){
+    removeSolutionColors()
+    removeOldRows()
+    removeGuessColors()
+    row_number = 1;
+    clicked = 0;
+    solution = [];
+    user_solution = []
+    console.log(user_solution)
+    console.log(solution)
+    initialisation()
+    console.log(solution)
+}
+
