@@ -11,7 +11,7 @@ function get2ndClass(element) {
 }
 
 // Checks if a circle already has a color if not gives it the first color of the colors array
-// Checks the color number higher then 3 thrn resets the number to 0
+// Checks the color number higher then 3 then resets the number to 0
 // In both cases it gets sent to the function setBGcolor
 function processClick(id) {
 
