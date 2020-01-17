@@ -1,9 +1,9 @@
-.circle {
+div .circle {
     padding: 25px;
-    background: white;
     border-radius: 50%;
-    border: black solid 2px;
     display: inline-block;
+    border: solid black 2px;
+    margin: 0;
 }
 
 .button{

@@ -84,7 +84,9 @@ function createCircle (row_number, circle_number,color){
     div.id = "g" + row_number + "_" + circle_number;
     div.className = "circle";
     div.classList.add(color);
+    div.style.margin = "0 4px 0 0";
     document.getElementById(row).appendChild(div);
+
 }
 
 // Creates 4 random numbers which will be used to choose the 4 random colors
