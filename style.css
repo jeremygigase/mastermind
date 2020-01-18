@@ -79,10 +79,13 @@ h1.title {
 }
 div.circle {
     padding: 20px;
-    border-radius: 50%;
     display: inline-block;
     border: solid black 2px;
     margin: 0;
+}
+
+.circle {
+    border-radius: 50%;
 }
 
 .button{
@@ -157,4 +160,8 @@ button#normal {
 
 button#circles {
     background: red;
+}
+
+button#squares {
+    background: black;
 }

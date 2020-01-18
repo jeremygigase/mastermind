@@ -37,6 +37,8 @@ function chooseStyle(id){
         style = chosen_style
         style_change = "0%"
 
+        changeStyle(".circle")
+        changeStyle("span")
         colorSwitch(circles, squares)
 
     } else if (chosen_style == "circles") {
@@ -44,13 +46,24 @@ function chooseStyle(id){
         style = chosen_style
         style_change = "50%"
 
+        changeStyle(".circle")
+        changeStyle("span")
         colorSwitch(squares, circles)
 
     }
-    console.log(id)
-
 }
 
+function changeStyle(className) {
+
+    const stylesheet = document.styleSheets[0];
+    var classes = document.styleSheets[0].rules || document.styleSheets[0].cssRules;
+    for (var x = 0; x < classes.length; x++) {
+        if (classes[x].selectorText == className) {
+            stylesheet.cssRules[x].style.setProperty('border-radius', style_change);
+        }
+
+    }
+}
 // Checks if mode is already chosen if not switches modes and restarts game
 function chooseMode (id){
 
