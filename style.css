@@ -1,8 +1,10 @@
 /* CSS with mastermind */
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 body {
     background: white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -25,14 +27,16 @@ body {
 }
 
 header{
-    background:peachpuff;
+    background:#fff;
     grid-area:header;
+    border-bottom: black solid 2px;
 }
 
 aside {
-    background: green;
+    background: #fff;
     min-height: 100%;
     grid-area: aside;
+    border: black solid 2px ;
 }
 
 section {
@@ -46,37 +50,32 @@ section {
     grid-gap : 10px;
     grid-template-areas:
             "playfield empty"
-            "playfield workspace"
-            "playfield buttons";
+            "playfield empty"
+            "playfield workspace";
 }
 nav {
-    background: black;
+    background: #fff;
     min-height: 100%;
     min-width: 200px;
     grid-area: nav;
+    border: black solid 2px ;
 }
 
 div.workspace {
     min-height: 100%;
-    min-width: 100%;
+    min-width: 200px;
     grid-area: workspace;
 }
 
-div.buttons {
-    min-height: 100%;
-    min-width: 200px;
-    grid-area: buttons;
-}
 div.playfield {
     min-height: 100%;
     min-width: 350px;
     grid-area: playfield;
 }
 
-
-
 h1.title {
     text-align: center;
+    padding: 10px 0 0 0 ;
 }
 div.circle {
     padding: 20px;
@@ -86,7 +85,6 @@ div.circle {
     margin: 0;
 }
 
-
 .button{
     width: 190px;
     background: black;
@@ -94,7 +92,6 @@ div.circle {
     color: white;
     border-radius: 5px;
 }
-
 
 .red{
     background: red;
@@ -131,4 +128,25 @@ span.white {
 
 #restart {
     display: block;
+}
+
+p.quote {
+    text-align: center;
+    position: relative;
+    top: 42%;
+    font-size: 2em;
+}
+
+nav ul {
+    text-align: center;
+    position: relative;
+    top: 33%;
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li .button{
+    height: 50px;
+    font-size: 150%;
 }

@@ -5,6 +5,8 @@ let row_number = 1;
 let clicked = 0;
 var solution = [];
 var user_solution = []
+var mode = "normal"
+var mode_number = 12;
 
 // Initialisation of the solution
 initialisation()
@@ -15,6 +17,23 @@ function initialisation () {
 // Returns the second class of an element
 function get2ndClass(element) {
     return (element && element.classList.length>1) ? element.classList[1] : null;
+}
+
+
+// Checks if mode is already chosen if not switches modes and restarts game
+function chooseMode (id){
+    let chosen_mode = id
+
+    if (mode == chosen_mode) {
+        alert("Already in this mode")
+    } else
+        {
+            mode = chosen_mode
+            mode_number = 8
+            newGame();
+        }
+    console.log(id)
+
 }
 
 // Checks if a circle already has a color if not gives it the first color of the colors array
@@ -243,16 +262,24 @@ function removeGuessColors () {
     }
 }
 
+
+// When to many rows of the chosen mode game over
+// and check button dissappears
 function gameOver () {
-    if (row_number == 10) {
+
+    var last_guess = mode_number - 2
+
+    if (row_number == last_guess) {
         alert("Last Guess")
     }
-    else if (row_number == 12 ) {
+    else if (row_number == mode_number) {
         setNewGameButton();
         alert("Game Over");
     } else {
         return row_number
     }
+    console.log(last_guess);
+    console.log(mode_number)
 }
 
 function newGame(){
