@@ -7,6 +7,8 @@ var solution = [];
 var user_solution = []
 var mode = "normal"
 var mode_number = 12;
+var style = "circles";
+var style_change = "50%";
 
 // Initialisation of the solution
 initialisation()
@@ -19,21 +21,71 @@ function get2ndClass(element) {
     return (element && element.classList.length>1) ? element.classList[1] : null;
 }
 
+function chooseStyle(id){
+
+    let chosen_style = id
+
+    let circles = document.getElementById("circles")
+    let squares = document.getElementById("squares")
+
+    if (style == chosen_style) {
+
+        alert("Already in this style")
+
+    } else if (chosen_style == "squares")
+    {
+        style = chosen_style
+        style_change = "0%"
+
+        colorSwitch(circles, squares)
+
+    } else if (chosen_style == "circles") {
+
+        style = chosen_style
+        style_change = "50%"
+
+        colorSwitch(squares, circles)
+
+    }
+    console.log(id)
+
+}
 
 // Checks if mode is already chosen if not switches modes and restarts game
 function chooseMode (id){
+
     let chosen_mode = id
+    let normal = document.getElementById("normal")
+    let hardcore = document.getElementById("hardcore")
 
     if (mode == chosen_mode) {
         alert("Already in this mode")
-    } else
+    } else if (chosen_mode == "hardcore")
         {
             mode = chosen_mode
             mode_number = 8
+
+            colorSwitch(normal, hardcore)
+
             newGame();
         }
-    console.log(id)
+        else if (chosen_mode = "normal")
+        {
+            mode = chosen_mode
+            mode_number = 12
 
+            colorSwitch(hardcore, normal)
+
+            newGame();
+    }
+    // console.log(id)
+}
+
+
+function colorSwitch (black, red) {
+
+    black.style.background = "black"
+    red.style.background = "red"
 }
 
 // Checks if a circle already has a color if not gives it the first color of the colors array
@@ -293,6 +345,7 @@ function newGame(){
     console.log(user_solution)
     console.log(solution)
     initialisation()
+    check.style.display = "block";
     console.log(solution)
 }
 

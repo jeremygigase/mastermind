@@ -150,3 +150,11 @@ nav ul li .button{
     height: 50px;
     font-size: 150%;
 }
+
+button#normal {
+    background: red;
+}
+
+button#circles {
+    background: red;
+}
