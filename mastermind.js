@@ -6,9 +6,21 @@ let clicked = 0;
 var solution = [];
 var user_solution = []
 var mode = "normal"
-var mode_number = 12;
+var mode_number = 13;
 var style = "circles";
 var style_change = "50%";
+var start_date = new Date()
+var start_time = start_date.getTime()
+
+
+function endTime() {
+    var end_date = new Date()
+    var end_time = end_date.getTime()
+
+    let total_time_mili = end_time - start_time
+    let total_time = total_time_mili / 1000
+    document.getElementById("time").innerHTML = "Time: " + total_time + " seconds";
+}
 
 // Initialisation of the solution
 initialisation()
@@ -85,7 +97,7 @@ function chooseMode (id){
         else if (chosen_mode = "normal")
         {
             mode = chosen_mode
-            mode_number = 12
+            mode_number = 13
 
             colorSwitch(hardcore, normal)
 
@@ -265,6 +277,7 @@ function feedback( black, white, el_name ) {
         showSolution()
         setNewGameButton()
         endGameText("You Win!")
+        endTime()
     }
         else {
             for (i = 0; i < black; i++) {
@@ -332,7 +345,7 @@ function removeGuessColors () {
 // and check button dissappears
 function gameOver () {
 
-    var last_guess = mode_number - 2
+    var last_guess = mode_number - 1
 
     if (row_number == last_guess) {
         endGameText("Last Guess!")
@@ -360,10 +373,9 @@ function newGame(){
     clicked = 0;
     solution = [];
     user_solution = []
-    console.log(user_solution)
-    console.log(solution)
     initialisation()
     check.style.display = "block";
-    console.log(solution)
+    start_date = new Date()
+    start_time = start_date.getTime()
 }
 
