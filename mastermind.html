@@ -8,18 +8,26 @@
 <body>
 
     <div class="container">
+        <header>
+            <h1 class="title"> Mastermind </h1>
+        </header>
+        <nav>
+
+        </nav>
         <section id="playfield">
-            <div class="oplossing">
-                <div id="sol1" class="circle"></div>
-                <div id="sol2" class="circle"></div>
-                <div id="sol3" class="circle"></div>
-                <div id="sol4" class="circle"></div>
-            </div> <!-- .oplossing -->
+            <div class="playfield">
+                <div class="oplossing">
+                    <div id="sol1" class="circle"></div>
+                    <div id="sol2" class="circle"></div>
+                    <div id="sol3" class="circle"></div>
+                    <div id="sol4" class="circle"></div>
+                </div> <!-- .oplossing -->
 
-            <div id="rijen">
-            </div>
+                <div id="rijen">
+                </div>
+            </div> <!-- .playfield -->
 
-            <div class="werkblad">
+            <div class="workspace">
                 <div id="rij_1">
                     <div onclick="processClick(this.id)" id="g1_1" class="circle"></div>
                     <div onclick="processClick(this.id)" id="g1_2" class="circle"></div>
@@ -28,25 +36,32 @@
                 </div>
             </div> <!-- .werkblad -->
 
-            <div >
-                <button type="button" onclick="newRow()" id="check" class="button">
-                    Check
-                </button>
-            </div>
 
-            <div >
-                <button type="button" onclick="newGame()" id="restart" class="button">
-                    Start New Game
-                </button>
-            </div>
-            <div>
 
-                <button type="button" onclick="toonOplossing()" id="toonButton" class="button">
-                    Toon Oplossing
-                </button>
-            </div>
+            <div class="buttons">
+                <div>
+                    <button type="button" onclick="newRow()" id="check" class="button">
+                        Check
+                    </button>
+                </div>
+
+                <div >
+                    <button type="button" onclick="newGame()" id="restart" class="button">
+                        Start New Game
+                    </button>
+                </div>
+                <div>
+
+                    <button type="button" onclick="toonOplossing()" id="toonButton" class="button">
+                        Toon Oplossing
+                    </button>
+                </div>
+            </div> <!-- buttons -->
 
         </section> <!-- #playfield -->
+        <aside>
+
+        </aside>
     </div> <!-- .container -->
     <script src="mastermind.js"></script>
 </body>

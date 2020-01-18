@@ -54,6 +54,7 @@ function setBGColor (element , color_number){
 // Adds a new row with the colors the user gave
 function newRow (){
     row_number++;
+    gameOver()
     let div = document.createElement("div");
     let row = "rij_" + row_number;
     div.id = row
@@ -239,6 +240,18 @@ function removeGuessColors () {
         let element = document.getElementById(circle);
         let secondClass = get2ndClass(element)
         element.classList.remove(secondClass);
+    }
+}
+
+function gameOver () {
+    if (row_number == 10) {
+        alert("Last Guess")
+    }
+    else if (row_number == 12 ) {
+        setNewGameButton();
+        alert("Game Over");
+    } else {
+        return row_number
     }
 }
 

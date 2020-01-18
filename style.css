@@ -1,35 +1,101 @@
-div .circle {
-    padding: 25px;
+/* CSS with mastermind */
+
+
+body {
+    background: white;
+}
+
+.container {
+    /* height: 100vh;
+    background: peachpuff;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    background-color: black; */
+
+    display: grid;
+    grid-template: 100px 1fr 1fr/ 1fr 1fr 1fr;
+    grid-gap : 10px;
+    grid-template-areas:
+            "header header header "
+            "nav section aside"
+            "nav section aside";
+    height: 100vh;
+}
+
+header{
+    background:peachpuff;
+    grid-area:header;
+}
+
+aside {
+    background: green;
+    min-height: 100%;
+    grid-area: aside;
+}
+
+section {
+    background: cornsilk;
+    min-height: 95%;
+    min-width: 600px;
+    padding: 1em;
+    grid-area: section;
+    display: grid;
+    grid-template: 1fr 1fr/ 1fr 1fr 1fr;
+    grid-gap : 10px;
+    grid-template-areas:
+            "playfield empty"
+            "playfield workspace"
+            "playfield buttons";
+}
+nav {
+    background: black;
+    min-height: 100%;
+    min-width: 200px;
+    grid-area: nav;
+}
+
+div.workspace {
+    min-height: 100%;
+    min-width: 100%;
+    grid-area: workspace;
+}
+
+div.buttons {
+    min-height: 100%;
+    min-width: 200px;
+    grid-area: buttons;
+}
+div.playfield {
+    min-height: 100%;
+    min-width: 350px;
+    grid-area: playfield;
+}
+
+
+
+h1.title {
+    text-align: center;
+}
+div.circle {
+    padding: 20px;
     border-radius: 50%;
     display: inline-block;
     border: solid black 2px;
     margin: 0;
 }
 
+
 .button{
-    width: 220px;
+    width: 190px;
     background: black;
     height: 25px;
     color: white;
     border-radius: 5px;
 }
 
-.container {
-    height: 100vh;
-    background: peachpuff;
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-}
 
-#playfield{
-    background-color: white;
-    width: 600px;
-    height: 100%;
-    padding: 1em;
-}
 .red{
     background: red;
 }
