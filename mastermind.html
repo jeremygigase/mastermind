@@ -13,6 +13,7 @@
         </header>
         <nav>
             <ul>
+                <!--<li><button onclick="amountOfColors()"class="button"></button></li> -->
                 <li><button onclick="chooseStyle(this.id)" id="circles" class="button">Circles</button></li>
                 <li><button onclick="chooseStyle(this.id)" id="squares" class="button">Squares</button></li>
                 <li><button onclick="chooseMode(this.id)" id="normal"  class="button">Normal</button></li>
@@ -32,6 +33,18 @@
                 <div id="rijen">
                 </div>
             </div> <!-- .playfield -->
+            <div class="score">
+                <h2>Score</h2>
+                <ul>
+                    <li>Time: </li>
+                    <li>Rows: </li>
+                    <li>Wins in a row: </li>
+                </ul>
+            </div>
+
+            <div id="endgame" class="endgame">
+                <h2 id="endgametext"><!--You win!--></h2>
+            </div>
 
             <div class="workspace">
                 <div id="rij_1">

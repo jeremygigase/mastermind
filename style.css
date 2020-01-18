@@ -49,8 +49,8 @@ section {
     grid-template: 1fr 1fr/ 1fr 1fr 1fr;
     grid-gap : 10px;
     grid-template-areas:
-            "playfield empty"
-            "playfield empty"
+            "playfield score"
+            "playfield endgame"
             "playfield workspace";
 }
 nav {
@@ -73,10 +73,44 @@ div.playfield {
     grid-area: playfield;
 }
 
+div.score {
+    min-height: 100%;
+    min-width: 200px;
+    background: yellow;
+    grid-area: score;
+}
+
+div.endgame {
+    min-height: 100%;
+    min-width: 200px;
+    grid-area: endgame;
+}
+
+div#endgame{
+    display: none;
+}
+
+div.endgame h2{
+    text-align: center;
+    font-size: 4em;
+
+}
+
 h1.title {
     text-align: center;
     padding: 10px 0 0 0 ;
 }
+
+.button{
+    width: 190px;
+    background: black;
+    height: 25px;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Circles ----------------------------------------*/
+
 div.circle {
     padding: 20px;
     display: inline-block;
@@ -88,13 +122,7 @@ div.circle {
     border-radius: 50%;
 }
 
-.button{
-    width: 190px;
-    background: black;
-    height: 25px;
-    color: white;
-    border-radius: 5px;
-}
+
 
 .red{
     background: red;
@@ -112,6 +140,7 @@ div.circle {
     background: green;
 }
 
+/* Dots -------------------------------------- */
 
 span {
     padding: 12px;
@@ -140,6 +169,7 @@ p.quote {
     font-size: 2em;
 }
 
+/* Side Buttons -----------------------------*/
 nav ul {
     text-align: center;
     position: relative;
@@ -165,3 +195,5 @@ button#circles {
 button#squares {
     background: black;
 }
+
+

@@ -264,7 +264,7 @@ function feedback( black, white, el_name ) {
         }
         showSolution()
         setNewGameButton()
-        alert("You've won!")
+        endGameText("You Win!")
     }
         else {
             for (i = 0; i < black; i++) {
@@ -335,16 +335,21 @@ function gameOver () {
     var last_guess = mode_number - 2
 
     if (row_number == last_guess) {
-        alert("Last Guess")
+        endGameText("Last Guess!")
     }
     else if (row_number == mode_number) {
         setNewGameButton();
-        alert("Game Over");
+        endGameText("Game Over!")
+
     } else {
         return row_number
     }
-    console.log(last_guess);
-    console.log(mode_number)
+}
+
+function endGameText (text){
+    document.getElementById("endgametext").innerHTML = text;
+    document.getElementById("endgame").style.display="block"
+
 }
 
 function newGame(){
