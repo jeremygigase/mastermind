@@ -11,6 +11,7 @@ var style = "circles";
 var style_change = "50%";
 var start_date = new Date()
 var start_time = start_date.getTime()
+var wins = 0
 
 
 function endTime() {
@@ -20,6 +21,10 @@ function endTime() {
     let total_time_mili = end_time - start_time
     let total_time = total_time_mili / 1000
     document.getElementById("time").innerHTML = "Time: " + total_time + " seconds";
+}
+
+function winsShow () {
+    document.getElementById("wins").innerHTML = "Wins: " + wins;
 }
 
 // Initialisation of the solution
@@ -276,8 +281,10 @@ function feedback( black, white, el_name ) {
         }
         showSolution()
         setNewGameButton()
-        endGameText("You Win!")
+        endGameText("You Win!", "Cracked the code!")
         endTime()
+        wins++
+        winsShow()
     }
         else {
             for (i = 0; i < black; i++) {
@@ -304,16 +311,6 @@ function setNewGameButton() {
     let restart = document.getElementById("restart");
 
     check.style.display = "none";
-
-    /* if (restart.style.display == "none") {
-        check.style.display = "none";
-        restart.style.display = "block";
-    }
-    else
-        {
-        check.style.display = "block";
-        restart.style.display = "none";
-    } */
 }
 
 // Removes the rows from the previous game
@@ -348,20 +345,22 @@ function gameOver () {
     var last_guess = mode_number - 1
 
     if (row_number == last_guess) {
-        endGameText("Last Guess!")
+        endGameText("Last Guess!", "")
     }
     else if (row_number == mode_number) {
         setNewGameButton();
-        endGameText("Game Over!")
+        endGameText("Game Over!", "Try Again!")
 
     } else {
         return row_number
     }
 }
 
-function endGameText (text){
+function endGameText (text, code_text){
     document.getElementById("endgametext").innerHTML = text;
     document.getElementById("endgame").style.display="block"
+
+    document.getElementById("cracked").innerHTML = code_text;
 
 }
 
@@ -377,6 +376,6 @@ function newGame(){
     check.style.display = "block";
     start_date = new Date()
     start_time = start_date.getTime()
-    endGameText("")
+    endGameText("","")
 }
 

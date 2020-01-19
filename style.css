@@ -77,14 +77,22 @@ div.playfield {
     min-height: 100%;
     min-width: 350px;
     grid-area: playfield;
+    padding-left: 1.2em;
 }
+
+
+/*  Score screen --------------*/
 
 div.score {
     min-height: 100%;
-    min-width: 200px;
-    background: yellow;
+    min-width: 160px;
+    background: #fff;
     grid-area: score;
+    border: black solid 2px;
+    padding: 1em;
 }
+
+/*  Endgame splash screen --------------*/
 
 div.endgame {
     min-height: 100%;
@@ -172,10 +180,18 @@ span.white {
     display: block;
 }
 
-p.quote {
+/* Aside -----------------------------------*/
+
+aside div.how2 {
+    padding: 1em;
+}
+
+aside div.how2 div.modes p{
+    margin: 0;
+}
+
+aside blockquote {
     text-align: center;
-    position: relative;
-    top: 42%;
     font-size: 2em;
 }
 
