@@ -13,11 +13,13 @@
         </header>
         <nav>
             <ul>
-                <!--<li><button onclick="amountOfColors()"class="button"></button></li> -->
+                <li><button onclick="activateTimer(this.id)" id="timer" class="button">Timer</button></li>
+                <li><p id="time2play"></p></li>
                 <li><button onclick="chooseStyle(this.id)" id="circles" class="button">Circles</button></li>
                 <li><button onclick="chooseStyle(this.id)" id="squares" class="button">Squares</button></li>
                 <li><button onclick="chooseMode(this.id)" id="normal"  class="button">Normal</button></li>
                 <li><button onclick="chooseMode(this.id)" id="hardcore"  class="button">Hardcore</button></li>
+                <li><button onclick="extraColor(this.id)" id="extra"  class="button">Extra Color</button></li>
                 <!-- <li><button onclick="chooseMode()" class="button">Endless</button></li> -->
             </ul>
         </nav>
@@ -86,7 +88,7 @@
                 <p>The white Indicator dots display the number of circles that are in the correct colors but in the incorrect positions.</p>
                 <div class="modes">
                     <p>Normal mode: 12 guesses</p>
-                    <p>Hardcore: 8 guesses</p>
+                    <p>Hardcore: 6 guesses</p>
                 </div>
                 <blockquote>Can you crack the code? </blockquote>
                 <blockquote id="cracked"></blockquote>

@@ -1,6 +1,8 @@
+/* Javascript for Mastermind--------------------------------------------
+--------------------------------------------------------------*/
 
 // Setting variables and let's
-let colors = ["red", "blue", "yellow", "green"];
+var colors = ["red", "blue", "yellow", "green"];
 let row_number = 1;
 let clicked = 0;
 var solution = [];
@@ -12,20 +14,10 @@ var style_change = "50%";
 var start_date = new Date()
 var start_time = start_date.getTime()
 var wins = 0
+var hidden_timer
+var timer_interval
+var timer_time = 30000
 
-
-function endTime() {
-    var end_date = new Date()
-    var end_time = end_date.getTime()
-
-    let total_time_mili = end_time - start_time
-    let total_time = total_time_mili / 1000
-    document.getElementById("time").innerHTML = "Time: " + total_time + " seconds";
-}
-
-function winsShow () {
-    document.getElementById("wins").innerHTML = "Wins: " + wins;
-}
 
 // Initialisation of the solution
 initialisation()
@@ -33,10 +25,84 @@ function initialisation () {
     random1_4();
 }
 
+/* Frequently used functions --------------------------------------------
+--------------------------------------------------------------*/
+
 // Returns the second class of an element
 function get2ndClass(element) {
     return (element && element.classList.length>1) ? element.classList[1] : null;
 }
+
+function toggleActive (id) {
+    let toggler = document.getElementById(id);
+    toggler.classList.toggle("active");
+}
+
+
+/* Score functions --------------------------------------------
+--------------------------------------------------------------*/
+
+function endTime() {
+    var end_date = new Date()
+    var end_time = end_date.getTime()
+
+    let total_time_mili = end_time - start_time
+    let total_time = total_time_mili / 1000
+    document.getElementById("time").innerHTML = "Time: " + total_time.toFixed(2) + " seconds";
+}
+
+function winsShow () {
+    document.getElementById("wins").innerHTML = "Wins: " + wins;
+}
+
+
+/* Timer functions --------------------------------------------
+--------------------------------------------------------------*/
+
+function timerReset () {
+    setNewGameButton()
+    endGameText("Times up!", "Try Again!")
+}
+
+function activateTimer(id){
+    toggleActive(id)
+    timerActive(id);
+}
+
+function timerActive(id){
+    let timer = document.getElementById(id);
+    console.log (timer.classList.value)
+    if (timer.classList.value == "button active") {
+        hidden_timer = setTimeout(timerReset, timer_time + 1000);
+        startTimer(timer_time / 1000)
+    } else{
+        stopTimer();
+    }
+    newGame();
+}
+
+function stopTimer() {
+    clearTimeout( hidden_timer);
+    clearInterval(timer_interval)
+    document.getElementById("time2play").innerHTML = " ";
+}
+
+
+function startTimer(duration) {
+    var timer = duration, seconds;
+    timer_interval = setInterval(function () {
+        seconds = parseInt(timer % 60, 10);
+
+        document.getElementById("time2play").innerHTML =  seconds + "s ";
+
+        if (--timer < 0) {
+            document.getElementById("time2play").innerHTML = "Times up!";
+        }
+    }, 1000);
+}
+
+/* Style Functions --------------------------------------------
+--------------------------------------------------------------*/
 
 function chooseStyle(id){
 
@@ -81,6 +147,9 @@ function changeStyle(className) {
 
     }
 }
+/* Mode  functions --------------------------------------------
+--------------------------------------------------------------*/
+
 // Checks if mode is already chosen if not switches modes and restarts game
 function chooseMode (id){
 
@@ -93,7 +162,7 @@ function chooseMode (id){
     } else if (chosen_mode == "hardcore")
         {
             mode = chosen_mode
-            mode_number = 8
+            mode_number = 7
 
             colorSwitch(normal, hardcore)
 
@@ -111,12 +180,26 @@ function chooseMode (id){
     // console.log(id)
 }
 
+/* Extra color functions --------------------------------------------
+--------------------------------------------------------------*/
 
-function colorSwitch (black, red) {
-
-    black.style.background = "black"
-    red.style.background = "red"
+function extraColor(id){
+    toggleActive(id)
 }
+
+/* Side Buttons functions --------------------------------------------
+--------------------------------------------------------------*/
+function colorSwitch (non_active, active) {
+
+    non_active.style.background = "white"
+    non_active.style.color = "black"
+    non_active.style.border = "black solid 2px"
+    active.style.color = "white"
+    active.style.background = "black"
+}
+
+/* Game functions --------------------------------------------
+--------------------------------------------------------------*/
 
 // Checks if a circle already has a color if not gives it the first color of the colors array
 // Checks the color number higher then 3 then resets the number to 0
@@ -263,11 +346,7 @@ function checkAnswer( el_name) {
             test_solution[remove_color_number] = "null"
         }
     }
-
-    console.log(user_solution)
-    console.log(solution)
     feedback(black, white, el_name);
-
 }
 
 // Shows dots that indicate how you've guessed
@@ -285,6 +364,7 @@ function feedback( black, white, el_name ) {
         endTime()
         wins++
         winsShow()
+        stopTimer()
     }
         else {
             for (i = 0; i < black; i++) {
@@ -357,11 +437,11 @@ function gameOver () {
 }
 
 function endGameText (text, code_text){
+
     document.getElementById("endgametext").innerHTML = text;
     document.getElementById("endgame").style.display="block"
 
     document.getElementById("cracked").innerHTML = code_text;
-
 }
 
 function newGame(){
