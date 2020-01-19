@@ -159,8 +159,8 @@ div.circle {
     background: green;
 }
 
-.purple{
-    background: purple;
+.peachpuff{
+    background: peachpuff;
 }
 
 /* Dots -------------------------------------- */
@@ -267,7 +267,7 @@ button#extra {
 }
 
 button#extra.active {
-    background: purple;
+    background: peachpuff;
     color: white;
     border: black solid 2px;
 

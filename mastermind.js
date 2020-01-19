@@ -36,12 +36,14 @@ function get2ndClass(element) {
 function toggleActive (id) {
     let toggler = document.getElementById(id);
     toggler.classList.toggle("active");
+    newGame();
 }
 
 
 /* Score functions --------------------------------------------
 --------------------------------------------------------------*/
 
+// Shows total time played
 function endTime() {
     var end_date = new Date()
     var end_time = end_date.getTime()
@@ -51,6 +53,7 @@ function endTime() {
     document.getElementById("time").innerHTML = "Time: " + total_time.toFixed(2) + " seconds";
 }
 
+// Show total wins
 function winsShow () {
     document.getElementById("wins").innerHTML = "Wins: " + wins;
 }
@@ -59,26 +62,29 @@ function winsShow () {
 /* Timer functions --------------------------------------------
 --------------------------------------------------------------*/
 
+// Resets game when the time is up
 function timerReset () {
     setNewGameButton()
-    endGameText("Times up!", "Try Again!")
+    endGameText("Time's up!", "Try Again!")
 }
 
-function activateTimer(id){
+
+function activateTimer(id) {
     toggleActive(id)
     timerActive(id);
 }
 
+
+
 function timerActive(id){
     let timer = document.getElementById(id);
-    console.log (timer.classList.value)
     if (timer.classList.value == "button active") {
+        clearInterval(timer_interval)
         hidden_timer = setTimeout(timerReset, timer_time + 1000);
         startTimer(timer_time / 1000)
     } else{
         stopTimer();
     }
-    newGame();
 }
 
 function stopTimer() {
@@ -92,11 +98,11 @@ function startTimer(duration) {
     var timer = duration, seconds;
     timer_interval = setInterval(function () {
         seconds = parseInt(timer % 60, 10);
-
+        console.log (seconds)
         document.getElementById("time2play").innerHTML =  seconds + "s ";
 
         if (--timer < 0) {
-            document.getElementById("time2play").innerHTML = "Times up!";
+            document.getElementById("time2play").innerHTML = "Time's up!";
         }
     }, 1000);
 }
@@ -457,5 +463,7 @@ function newGame(){
     start_date = new Date()
     start_time = start_date.getTime()
     endGameText("","")
+    timerActive("timer")
+
 }
 
