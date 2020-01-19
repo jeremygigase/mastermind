@@ -377,5 +377,6 @@ function newGame(){
     check.style.display = "block";
     start_date = new Date()
     start_time = start_date.getTime()
+    endGameText("")
 }
 

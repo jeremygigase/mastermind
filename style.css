@@ -7,6 +7,12 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+ul{
+    list-style: none; /* Remove list bullets */
+    padding: 0;
+    margin: 0;
+}
+
 .container {
     /* height: 100vh;
     background: peachpuff;
@@ -58,7 +64,7 @@ nav {
     min-height: 100%;
     min-width: 200px;
     grid-area: nav;
-    border: black solid 2px ;
+    /* border: black solid 2px ; */
 }
 
 div.workspace {
@@ -101,13 +107,19 @@ h1.title {
     padding: 10px 0 0 0 ;
 }
 
+/* Game Buttons ------------------------*/
+
+
 .button{
     width: 190px;
     background: black;
-    height: 25px;
+    height: 30px;
     color: white;
     border-radius: 5px;
+    font-size: 110%;
 }
+
+
 
 /* Circles ----------------------------------------*/
 
@@ -121,8 +133,6 @@ div.circle {
 .circle {
     border-radius: 50%;
 }
-
-
 
 .red{
     background: red;
@@ -174,9 +184,6 @@ nav ul {
     text-align: center;
     position: relative;
     top: 33%;
-    list-style: none; /* Remove list bullets */
-    padding: 0;
-    margin: 0;
 }
 
 nav ul li .button{
