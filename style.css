@@ -159,8 +159,8 @@ div.circle {
     background: green;
 }
 
-.peachpuff{
-    background: peachpuff;
+.pink{
+    background: pink;
 }
 
 /* Dots -------------------------------------- */
@@ -230,6 +230,7 @@ button#timer {
 P#time2play {
     margin-bottom: 2em;
     height: 2em;
+    font-size: 150%;
 }
 
 button#timer.active {
@@ -267,10 +268,9 @@ button#extra {
 }
 
 button#extra.active {
-    background: peachpuff;
+    background: pink;
     color: white;
     border: black solid 2px;
-
 }
 
 

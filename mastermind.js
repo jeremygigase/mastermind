@@ -6,21 +6,22 @@ var colors = ["red", "blue", "yellow", "green"];
 let row_number = 1;
 let clicked = 0;
 var solution = [];
-var user_solution = []
-var mode = "normal"
+var user_solution = [];
+var mode = "normal";
 var mode_number = 13;
 var style = "circles";
 var style_change = "50%";
-var start_date = new Date()
-var start_time = start_date.getTime()
-var wins = 0
-var hidden_timer
-var timer_interval
-var timer_time = 30000
+var start_date = new Date();
+var start_time = start_date.getTime();
+var wins = 0;
+var hidden_timer;
+var timer_interval;
+var timer_time = 30000;
 
 
 // Initialisation of the solution
-initialisation()
+initialisation();
+
 function initialisation () {
     random1_4();
 }
@@ -45,11 +46,11 @@ function toggleActive (id) {
 
 // Shows total time played
 function endTime() {
-    var end_date = new Date()
-    var end_time = end_date.getTime()
+    var end_date = new Date();
+    var end_time = end_date.getTime();
 
-    let total_time_mili = end_time - start_time
-    let total_time = total_time_mili / 1000
+    let total_time_mili = end_time - start_time;
+    let total_time = total_time_mili / 1000;
     document.getElementById("time").innerHTML = "Time: " + total_time.toFixed(2) + " seconds";
 }
 
@@ -64,13 +65,13 @@ function winsShow () {
 
 // Resets game when the time is up
 function timerReset () {
-    setNewGameButton()
-    endGameText("Time's up!", "Try Again!")
+    setNewGameButton();
+    endGameText("Game over!", "Try again!");
 }
 
 
 function activateTimer(id) {
-    toggleActive(id)
+    toggleActive(id);
     timerActive(id);
 }
 
@@ -79,9 +80,9 @@ function activateTimer(id) {
 function timerActive(id){
     let timer = document.getElementById(id);
     if (timer.classList.value == "button active") {
-        clearInterval(timer_interval)
+        clearInterval(timer_interval);
         hidden_timer = setTimeout(timerReset, timer_time + 1000);
-        startTimer(timer_time / 1000)
+        startTimer(timer_time / 1000);
     } else{
         stopTimer();
     }
@@ -89,7 +90,7 @@ function timerActive(id){
 
 function stopTimer() {
     clearTimeout( hidden_timer);
-    clearInterval(timer_interval)
+    clearInterval(timer_interval);
     document.getElementById("time2play").innerHTML = " ";
 }
 
@@ -98,9 +99,23 @@ function startTimer(duration) {
     var timer = duration, seconds;
     timer_interval = setInterval(function () {
         seconds = parseInt(timer % 60, 10);
-        console.log (seconds)
+        console.log (seconds);
         document.getElementById("time2play").innerHTML =  seconds + "s ";
 
+        /* for (i = 10; i < 6; i-=2) {
+            if (timer == i) {
+                document.getElementById("time2play").innerHTML = "Time's almost up!";
+            }
+        } */
+         if (timer == 10) {
+            document.getElementById("time2play").innerHTML = "Time's almost up!";
+        }
+        if (timer == 8) {
+            document.getElementById("time2play").innerHTML = "Time's almost up!";
+        }
+        if (timer == 6) {
+            document.getElementById("time2play").innerHTML = "Time's almost up!";
+        }
         if (--timer < 0) {
             document.getElementById("time2play").innerHTML = "Time's up!";
         }
@@ -112,10 +127,10 @@ function startTimer(duration) {
 
 function chooseStyle(id){
 
-    let chosen_style = id
+    let chosen_style = id;
 
-    let circles = document.getElementById("circles")
-    let squares = document.getElementById("squares")
+    let circles = document.getElementById("circles");
+    let squares = document.getElementById("squares");
 
     if (style == chosen_style) {
 
@@ -132,11 +147,11 @@ function chooseStyle(id){
 
     } else if (chosen_style == "circles") {
 
-        style = chosen_style
-        style_change = "50%"
+        style = chosen_style;
+        style_change = "50%";
 
-        changeStyle(".circle")
-        changeStyle("span")
+        changeStyle(".circle");
+        changeStyle("span");
         colorSwitch(squares, circles)
 
     }
@@ -159,9 +174,9 @@ function changeStyle(className) {
 // Checks if mode is already chosen if not switches modes and restarts game
 function chooseMode (id){
 
-    let chosen_mode = id
-    let normal = document.getElementById("normal")
-    let hardcore = document.getElementById("hardcore")
+    let chosen_mode = id;
+    let normal = document.getElementById("normal");
+    let hardcore = document.getElementById("hardcore");
 
     if (mode == chosen_mode) {
         alert("Already in this mode")
@@ -176,10 +191,10 @@ function chooseMode (id){
         }
         else if (chosen_mode = "normal")
         {
-            mode = chosen_mode
-            mode_number = 13
+            mode = chosen_mode;
+            mode_number = 13;
 
-            colorSwitch(hardcore, normal)
+            colorSwitch(hardcore, normal);
 
             newGame();
     }
@@ -191,16 +206,26 @@ function chooseMode (id){
 
 function extraColor(id){
     toggleActive(id)
+
+    let extra = document.getElementById(id);
+    if (extra.classList.value == "button active") {
+        colors.push("pink")
+        console.log(colors)
+    } else{
+        colors.pop()
+        console.log(colors)
+    }
+
 }
 
 /* Side Buttons functions --------------------------------------------
 --------------------------------------------------------------*/
 function colorSwitch (non_active, active) {
 
-    non_active.style.background = "white"
-    non_active.style.color = "black"
-    non_active.style.border = "black solid 2px"
-    active.style.color = "white"
+    non_active.style.background = "white";
+    non_active.style.color = "black";
+    non_active.style.border = "black solid 2px";
+    active.style.color = "white";
     active.style.background = "black"
 }
 
@@ -219,7 +244,7 @@ function processClick(id) {
         var color = get2ndClass(element);
         var color_number = colors.indexOf(color);
 
-        if (color_number > 3) {
+        if (color_number > colors.length) {
             color_number = 0;
             setBGColor(element, color_number);
         } else {
@@ -244,10 +269,10 @@ function setBGColor (element , color_number){
 // Adds a new row with the colors the user gave
 function newRow (){
     row_number++;
-    gameOver()
+    gameOver();
     let div = document.createElement("div");
     let row = "rij_" + row_number;
-    div.id = row
+    div.id = row;
     document.getElementById("rijen").appendChild(div);
     user_solution = [];
 
@@ -284,7 +309,7 @@ function createCircle (row_number, circle_number,color){
 function random1_4(){
 
     for (i = 1; i < 5; i++) {
-        var color_number = Math.floor(Math.random() * 4);
+        var color_number = Math.floor(Math.random() * colors.length);
         solution.push (colors[color_number]);
     }
     return solution
@@ -309,7 +334,7 @@ function toonOplossing () {
 // Shows color of the solution
 function showSolution () {
     for (i = 0; i < 4; i++) {
-        let circle_number = i + 1
+        let circle_number = i + 1;
         let circle = "sol" + circle_number;
         let element = document.getElementById(circle);
         element.classList.add(solution[i]);
@@ -320,10 +345,10 @@ function showSolution () {
 function removeSolutionColors () {
     for (i = 0; i < 4; i++)
     {
-        let circle_number = i + 1
+        let circle_number = i + 1;
         let circle = "sol" + circle_number;
         let element = document.getElementById(circle);
-        let secondClass = get2ndClass(element)
+        let secondClass = get2ndClass(element);
         element.classList.remove(secondClass);
     }
 }
@@ -336,19 +361,19 @@ function checkAnswer( el_name) {
     for (i = 0; i < 4; i++) {
 
         if (test_solution[i] == user_solution[i]){
-            black++
-            user_solution[i] = "black"
-            test_solution[i] = "null"
+            black++;
+            user_solution[i] = "black";
+            test_solution[i] = "null";
         }
     }
 
     for (i = 0; i < 4; i++) {
 
         if (test_solution.includes(user_solution[i])){
-            white++
-            let remove_color = user_solution[i]
-            let remove_color_number = test_solution.indexOf(remove_color)
-            user_solution[i] = "white"
+            white++;
+            let remove_color = user_solution[i];
+            let remove_color_number = test_solution.indexOf(remove_color);
+            user_solution[i] = "white";
             test_solution[remove_color_number] = "null"
         }
     }
@@ -364,13 +389,13 @@ function feedback( black, white, el_name ) {
         for (i = 0; i < black; i++) {
             createDot("black", el_name)
         }
-        showSolution()
-        setNewGameButton()
-        endGameText("You Win!", "Cracked the code!")
-        endTime()
-        wins++
-        winsShow()
-        stopTimer()
+        showSolution();
+        setNewGameButton();
+        endGameText("You Win!", "Cracked the code!");
+        endTime();
+        wins++;
+        winsShow();
+        stopTimer();
     }
         else {
             for (i = 0; i < black; i++) {
@@ -402,7 +427,7 @@ function setNewGameButton() {
 // Removes the rows from the previous game
 function removeOldRows() {
 
-    let to_delete_rows = row_number + 1
+    let to_delete_rows = row_number + 1;
 
     for (r = 2; r < to_delete_rows; r++){
 
@@ -415,10 +440,10 @@ function removeOldRows() {
 function removeGuessColors () {
     for (i = 0; i < 4; i++)
     {
-        let circle_number = i + 1
+        let circle_number = i + 1;
         let circle = "g1_" + circle_number;
         let element = document.getElementById(circle);
-        let secondClass = get2ndClass(element)
+        let secondClass = get2ndClass(element);
         element.classList.remove(secondClass);
     }
 }
@@ -428,7 +453,7 @@ function removeGuessColors () {
 // and check button dissappears
 function gameOver () {
 
-    var last_guess = mode_number - 1
+    var last_guess = mode_number - 1;
 
     if (row_number == last_guess) {
         endGameText("Last Guess!", "")
@@ -451,19 +476,18 @@ function endGameText (text, code_text){
 }
 
 function newGame(){
-    removeSolutionColors()
-    removeOldRows()
-    removeGuessColors()
+    removeSolutionColors();
+    removeOldRows();
+    removeGuessColors();
     row_number = 1;
     clicked = 0;
     solution = [];
-    user_solution = []
-    initialisation()
+    user_solution = [];
+    initialisation();
     check.style.display = "block";
-    start_date = new Date()
-    start_time = start_date.getTime()
-    endGameText("","")
+    start_date = new Date();
+    start_time = start_date.getTime();
+    endGameText("","");
     timerActive("timer")
-
 }
 
