@@ -209,7 +209,7 @@ nav{
 nav ul {
     text-align: center;
     position: relative;
-    top: 16%;
+    top: 15%;
 }
 
 nav ul li .button{
@@ -228,7 +228,7 @@ button#timer {
 }
 
 P#time2play {
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
     height: 2em;
     font-size: 150%;
 }

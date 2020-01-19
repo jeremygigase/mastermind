@@ -81,15 +81,16 @@ function timerActive(id){
     let timer = document.getElementById(id);
     if (timer.classList.value == "button active") {
         clearInterval(timer_interval);
-        hidden_timer = setTimeout(timerReset, timer_time + 1000);
+        // hidden_timer = setTimeout(timerReset, timer_time + 1000);
         startTimer(timer_time / 1000);
+        console.log();
     } else{
         stopTimer();
     }
 }
 
 function stopTimer() {
-    clearTimeout( hidden_timer);
+    // clearTimeout( hidden_timer);
     clearInterval(timer_interval);
     document.getElementById("time2play").innerHTML = " ";
 }
@@ -107,6 +108,7 @@ function startTimer(duration) {
                 document.getElementById("time2play").innerHTML = "Time's almost up!";
             }
         } */
+
          if (timer == 10) {
             document.getElementById("time2play").innerHTML = "Time's almost up!";
         }
@@ -118,6 +120,7 @@ function startTimer(duration) {
         }
         if (--timer < 0) {
             document.getElementById("time2play").innerHTML = "Time's up!";
+            timerReset();
         }
     }, 1000);
 }
@@ -461,6 +464,7 @@ function gameOver () {
     else if (row_number == mode_number) {
         setNewGameButton();
         endGameText("Game Over!", "Try Again!")
+        stopTimer();
 
     } else {
         return row_number
