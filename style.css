@@ -90,7 +90,7 @@ div.score {
     background: #fff;
     grid-area: score;
     border: black solid 2px;
-    padding: 1em;
+    padding: 0 1em 1em 1em;
 }
 
 /*  Endgame splash screen --------------*/
