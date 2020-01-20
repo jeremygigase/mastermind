@@ -188,7 +188,12 @@ span.white {
 /* Aside -----------------------------------*/
 
 aside div.how2 {
-    padding: 1em;
+    padding: 0.5em 1em 1em 1em;
+}
+
+aside div.how2 div.modes {
+    margin-top:1em;
+
 }
 
 aside div.how2 div.modes p{
@@ -197,7 +202,7 @@ aside div.how2 div.modes p{
 
 aside blockquote {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 /* Side Buttons -----------------------------*/
