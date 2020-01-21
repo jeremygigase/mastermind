@@ -14,13 +14,6 @@ ul{
 }
 
 .container {
-    /* height: 100vh;
-    background: peachpuff;
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-    background-color: black; */
 
     display: grid;
     grid-template: 100px 1fr 1fr/ 1fr 1fr 1fr;
@@ -289,6 +282,27 @@ button#extra.active {
     background: pink;
     color: white;
     border: black solid 2px;
+}
+
+/* media */
+
+@media only screen and (max-width: 800px) {
+    /* body {
+        background-color: lightblue;
+    } */
+    .container {
+
+        display: grid;
+        grid-template: 1fr 600px 700px 600px/ 1fr;
+        grid-gap : 10px;
+        grid-template-areas:
+                "header"
+                "aside"
+                "nav"
+                "section"
+                ;
+        height: 100vh;
+    }
 }
 
 
