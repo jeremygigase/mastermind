@@ -215,10 +215,10 @@ function changeStyle(className) {
 }
 
 function showRoundSquaresButton (){
-    if (wins == 1) {
+    if (wins == 3) {
         alert("New style available!")
         document.getElementById("round_squares").style.display = "inline-block"
-    } else if (wins > 1) {
+    } else if (wins > 3) {
         document.getElementById("round_squares").style.display = "inline-block"
     }
 }
