@@ -85,7 +85,7 @@ div.playfield {
 /*  Score screen --------------*/
 
 div.score {
-    height: 7em;
+    height: 9em;
     min-width: 160px;
     background: #fff;
     grid-area: score;

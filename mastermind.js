@@ -14,9 +14,10 @@ var style_change = "50%";
 var start_date = new Date();
 var start_time = start_date.getTime();
 var wins = 0;
-var hidden_timer;
 var timer_interval;
 var timer_time = 30000;
+var best_time = 0;
+var total_guesses = 0;
 
 
 // Initialisation of the solution
@@ -44,6 +45,8 @@ function toggleActive (id) {
 /* Score functions --------------------------------------------
 --------------------------------------------------------------*/
 
+
+
 // Shows total time played
 function endTime() {
     var end_date = new Date();
@@ -51,7 +54,29 @@ function endTime() {
 
     let total_time_mili = end_time - start_time;
     let total_time = total_time_mili / 1000;
-    document.getElementById("time").innerHTML = "Time: " + total_time.toFixed(2) + " seconds";
+    document.getElementById("time").innerHTML = "Time: " + total_time.toFixed(2) + "s";
+
+    // Best Time
+
+    if ( best_time == 0) {
+        best_time = total_time;
+        document.getElementById("best_time").innerHTML = "Best Time: " + best_time.toFixed(2) + "s";
+
+    } else {
+        if (best_time < total_time) {
+            total_time = total_time
+            document.getElementById("best_time").innerHTML = "Best Time: " + best_time.toFixed(2) + "s";
+        } else {
+            best_time = total_time
+            document.getElementById("best_time").innerHTML = "Best Time: " + best_time.toFixed(2) + "s";
+        }
+
+    }
+}
+
+function guesses () {
+    total_guesses = row_number - 1;
+    document.getElementById("guesses").innerHTML = "Guesses: " + total_guesses;
 }
 
 // Show total wins
@@ -399,6 +424,7 @@ function feedback( black, white, el_name ) {
         wins++;
         winsShow();
         stopTimer();
+        guesses()
     }
         else {
             for (i = 0; i < black; i++) {
@@ -483,6 +509,7 @@ function newGame(){
     removeSolutionColors();
     removeOldRows();
     removeGuessColors();
+
     row_number = 1;
     clicked = 0;
     solution = [];
@@ -493,5 +520,6 @@ function newGame(){
     start_time = start_date.getTime();
     endGameText("","");
     timerActive("timer")
+
 }
 
