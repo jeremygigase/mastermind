@@ -173,6 +173,8 @@ function chooseStyle(id){
         changeStyle(".circle")
         changeStyle("span")
         colorSwitch(circles, round_squares,squares)
+        document.getElementById("figure").innerHTML =  " ";
+        document.getElementById("figure").innerHTML +=  "squares";
 
     } else if (chosen_style == "circles") {
 
@@ -182,6 +184,8 @@ function chooseStyle(id){
         changeStyle(".circle");
         changeStyle("span");
         colorSwitch(squares, round_squares,circles)
+        document.getElementById("figure").innerHTML =  " ";
+        document.getElementById("figure").innerHTML +=  "circles";
 
     }
     else if (chosen_style == "round_squares") {
@@ -192,6 +196,8 @@ function chooseStyle(id){
         changeStyle(".circle");
         changeStyle("span");
         colorSwitch(squares, circles, round_squares)
+        document.getElementById("figure").innerHTML =  " ";
+        document.getElementById("figure").innerHTML +=  "rounded squares";
 
     }
 }

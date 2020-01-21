@@ -33,6 +33,7 @@ header{
 
 aside {
     background: #fff;
+    min-width: 400px;
     min-height: 100%;
     grid-area: aside;
     border: black solid 2px ;
@@ -171,6 +172,15 @@ span {
     margin-left: 5px;
 }
 
+span#figure {
+
+    padding: 0;
+    border-radius: 0;
+    display: inline-block;
+    border: 0;
+    margin-left: 0;
+
+}
 span.black {
     background: black;
 }
@@ -286,23 +296,41 @@ button#extra.active {
 
 /* media */
 
-@media only screen and (max-width: 800px) {
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 817px)
+{
     /* body {
         background-color: lightblue;
     } */
     .container {
 
         display: grid;
-        grid-template: 1fr 600px 700px 600px/ 1fr;
+        grid-template: 1fr 600px 600px 700px/ auto;
         grid-gap : 10px;
         grid-template-areas:
                 "header"
                 "aside"
                 "nav"
-                "section"
-                ;
+                "section";
         height: 100vh;
     }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .container {
+
+        display: grid;
+        grid-template: 1fr 600px 600px 700px/ auto;
+        grid-gap : 10px;
+        grid-template-areas:
+                "header"
+                "aside"
+                "nav"
+                "section";
+        height: 100vh;
+    }
+
 }
 
 
