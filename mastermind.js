@@ -159,6 +159,7 @@ function chooseStyle(id){
 
     let circles = document.getElementById("circles");
     let squares = document.getElementById("squares");
+    let round_squares = document.getElementById("round_squares");
 
     if (style == chosen_style) {
 
@@ -171,7 +172,7 @@ function chooseStyle(id){
 
         changeStyle(".circle")
         changeStyle("span")
-        colorSwitch(circles, squares)
+        colorSwitch(circles, round_squares,squares)
 
     } else if (chosen_style == "circles") {
 
@@ -180,7 +181,17 @@ function chooseStyle(id){
 
         changeStyle(".circle");
         changeStyle("span");
-        colorSwitch(squares, circles)
+        colorSwitch(squares, round_squares,circles)
+
+    }
+    else if (chosen_style == "round_squares") {
+
+        style = chosen_style;
+        style_change = "25%";
+
+        changeStyle(".circle");
+        changeStyle("span");
+        colorSwitch(squares, circles, round_squares)
 
     }
 }
@@ -194,6 +205,15 @@ function changeStyle(className) {
             stylesheet.cssRules[x].style.setProperty('border-radius', style_change);
         }
 
+    }
+}
+
+function showRoundSquaresButton (){
+    if (wins == 1) {
+        alert("New style available!")
+        document.getElementById("round_squares").style.display = "inline-block"
+    } else if (wins > 1) {
+        document.getElementById("round_squares").style.display = "inline-block"
     }
 }
 /* Mode  functions --------------------------------------------
@@ -213,7 +233,7 @@ function chooseMode (id){
             mode = chosen_mode
             mode_number = 7
 
-            colorSwitch(normal, hardcore)
+            colorSwitch2(normal, hardcore)
 
             newGame();
         }
@@ -222,7 +242,7 @@ function chooseMode (id){
             mode = chosen_mode;
             mode_number = 13;
 
-            colorSwitch(hardcore, normal);
+            colorSwitch2(hardcore, normal);
 
             newGame();
     }
@@ -248,11 +268,26 @@ function extraColor(id){
 
 /* Side Buttons functions --------------------------------------------
 --------------------------------------------------------------*/
-function colorSwitch (non_active, active) {
+function colorSwitch2 (non_active, active) {
 
     non_active.style.background = "white";
     non_active.style.color = "black";
     non_active.style.border = "black solid 2px";
+
+    active.style.color = "white";
+    active.style.background = "black"
+}
+
+function colorSwitch (non_active, other_non_active, active) {
+
+    non_active.style.background = "white";
+    non_active.style.color = "black";
+    non_active.style.border = "black solid 2px";
+
+    other_non_active.style.background = "white";
+    other_non_active.style.color = "black";
+    other_non_active.style.border = "black solid 2px";
+
     active.style.color = "white";
     active.style.background = "black"
 }
@@ -509,6 +544,7 @@ function newGame(){
     removeSolutionColors();
     removeOldRows();
     removeGuessColors();
+    showRoundSquaresButton();
 
     row_number = 1;
     clicked = 0;
