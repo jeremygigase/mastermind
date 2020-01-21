@@ -15,7 +15,7 @@ var start_date = new Date();
 var start_time = start_date.getTime();
 var wins = 0;
 var timer_interval;
-var timer_time = 30000;
+var timer_time = 45000;
 var best_time = 0;
 var total_guesses = 0;
 
