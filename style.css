@@ -33,7 +33,7 @@ header{
 
 aside {
     background: #fff;
-    min-width: 350px;
+    min-width: 340px;
     min-height: 100%;
     grid-area: aside;
     border: black solid 2px ;
@@ -274,13 +274,14 @@ button#round_squares {
     color: black;
     border: black solid 2px;
     display: none;
-
 }
 
 button#extra {
     background: white;
     color: black;
     border: black solid 2px;
+    display: none;
+
 }
 
 button#extra.active {
@@ -294,24 +295,64 @@ button#extra.active {
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 817px)
 {
-    /* body {
-        background-color: lightblue;
-    } */
+    .container {
+
+        display: grid;
+        grid-template: 1fr 600px 275px 900px / 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+                "header"
+                "aside"
+                "nav"
+                "section";
+        height: 100vh;
+    }
     section {
         min-height: 96%;
         min-width: 400px;
         border: black solid 2px;
         padding: 1em;
-        grid-area: section;
         display: grid;
-        grid-template: 500px 1fr / 1fr 1fr 1fr;
+        grid-template: 150px 500px 1fr / 1fr 1fr;
         grid-gap : 10px;
         grid-template-areas:
-                "playfield playfield endgame"
-                "score workspace workspace";
+                "endgame endgame"
+                "playfield playfield"
+                "score workspace";
+    }
+
+    nav {
+        width: 99.5%;
+    }
+    nav ul{
+        height: 100%;
+        min-width: 400px;
+        padding: 1em;
+        display: grid;
+        grid-template: 1fr / 1fr 1fr 1fr;
+        grid-gap : 10px;
+        grid-template-areas:
+                "timing styles modes"
+                "timing styles modes";
     }
     nav .button {
         width: 150px;
+    }
+    #round_squares{
+        height: 3em;
+    }
+    #extra{
+        height: 3em;
+    }
+
+    .timing{
+        grid-area: timing;
+    }
+    .styles{
+        grid-area: styles;
+    }
+    .modes {
+        grid-area: modes;
     }
 
     .gamebuttons button{
@@ -319,7 +360,12 @@ button#extra.active {
         height: 2.5em;
         font-size: 112%;
     }
-
+    div.workspace {
+        margin: 0 auto;
+    }
+    div.playfield {
+        margin: 0 auto 0  1.2em ;
+    }
     div.score {
         height:10em;
         width: 134px;
@@ -327,6 +373,7 @@ button#extra.active {
         border: black solid 2px;
         padding: 0 1em 1em 1em;
         margin-left: 1.2em;
+
     }
     div.circle {
         padding: 15px;
@@ -340,72 +387,94 @@ button#extra.active {
 }
 
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1200px) {
 
     .container {
 
         display: grid;
-        grid-template: 1fr 600px 800px / 1fr 2fr;
-        grid-gap : 10px;
+        grid-template: 1fr 500px 800px / 1fr 2fr;
+        grid-gap: 10px;
         grid-template-areas:
                 "header header"
                 "aside aside"
                 "nav section";
         height: 100vh;
     }
-    /* section {
-        min-height: 95%;
-        min-width: 300px;
-        border: black solid 2px;
-        padding: 1em;
-        grid-area: section;
-        display: grid;
-        grid-template: 1fr 700px 1fr 1fr/ 1fr;
-        grid-gap : 10px;
-        grid-template-areas:
-                "score"
-                "playfield "
-                "workspace"
-                "endgame";
-    }
-    div.score {
-        height: 9em;
-        width: 50%;
-        background: #fff;
-        grid-area: score;
-        border: black solid 2px;
-        padding: 0 1em 1em 1em;
-    }
-    div.workspace {
-        margin-left: 1.2em;
-    }*/
 
 }
 
-@media screen and (max-width: 850px){
+@media screen and (max-width: 820px){
+    .container {
+
+        display: grid;
+        grid-template: 1fr 600px 275px 900px / 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+                "header"
+                "aside"
+                "nav"
+                "section";
+        height: 100vh;
+    }
     section {
         min-height: 96%;
         min-width: 400px;
         border: black solid 2px;
         padding: 1em;
-        grid-area: section;
         display: grid;
-        grid-template: 500px 1fr / 1fr 1fr 1fr;
+        grid-template: 150px 500px 1fr / 1fr 1fr;
         grid-gap : 10px;
         grid-template-areas:
-                "playfield playfield endgame"
-                "score workspace workspace";
+                "endgame endgame"
+                "playfield playfield"
+                "score workspace";
+    }
+
+    nav {
+        width: 99.5%;
+    }
+    nav ul{
+        height: 100%;
+        min-width: 400px;
+        padding: 1em;
+        display: grid;
+        grid-template: 1fr / 1fr 1fr 1fr;
+        grid-gap : 10px;
+        grid-template-areas:
+                "timing styles modes"
+                "timing styles modes";
     }
     nav .button {
         width: 150px;
           }
+    #round_squares{
+             height: 3em;
+         }
+    #extra{
+        height: 3em;
+    }
+
+    .timing{
+        grid-area: timing;
+    }
+    .styles{
+        grid-area: styles;
+    }
+    .modes {
+        grid-area: modes;
+    }
 
     .gamebuttons button{
         width: 184px;
         height: 2.5em;
         font-size: 112%;
     }
-
+    div.workspace {
+        margin: 0 auto;
+    }
+    div.playfield {
+        margin: 0 auto 0  1.2em ;
+    }
     div.score {
         height:10em;
         width: 134px;
@@ -413,6 +482,7 @@ button#extra.active {
         border: black solid 2px;
         padding: 0 1em 1em 1em;
         margin-left: 1.2em;
+
     }
     div.circle {
         padding: 15px;
@@ -424,44 +494,6 @@ button#extra.active {
         padding: 20px;
     }
 }
-/* @media screen and (max-width: 800px) {
 
-    .container {
-
-        display: grid;
-        grid-template: 1fr 600px 600px 700px/ auto;
-        grid-gap : 10px;
-        grid-template-areas:
-                "header"
-                "aside"
-                "nav"
-                "section";
-    }
-    section {
-        min-height: 95%;
-        min-width: 300px;
-        border: black solid 2px;
-        padding: 1em;
-        grid-area: section;
-        display: grid;
-        grid-template: 1fr/ 1fr 700px 1fr 1fr;
-        grid-gap : 10px;
-        grid-template-areas:
-                "score"
-                "playfield "
-                "workspace"
-                "endgame";
-    }
-    div.score {
-        height: 9em;
-        min-width: 100px;
-        background: #fff;
-        grid-area: score;
-        border: black solid 2px;
-        padding: 0 1em 1em 1em;
-    }
-
-
-} */
 
 

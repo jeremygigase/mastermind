@@ -272,6 +272,15 @@ function extraColor(id){
 
 }
 
+function showExtraColorButton (){
+    if (wins == 6) {
+        alert("New color available!")
+        document.getElementById("extra").style.display = "inline-block"
+    } else if (wins > 6) {
+        document.getElementById("extra").style.display = "inline-block"
+    }
+}
+
 /* Side Buttons functions --------------------------------------------
 --------------------------------------------------------------*/
 function colorSwitch2 (non_active, active) {
@@ -551,6 +560,7 @@ function newGame(){
     removeOldRows();
     removeGuessColors();
     showRoundSquaresButton();
+    showExtraColorButton();
 
     row_number = 1;
     clicked = 0;

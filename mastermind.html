@@ -14,14 +14,20 @@
         </header>
         <nav>
             <ul>
+                <div class="timing">
                 <li><button onclick="activateTimer(this.id)" id="timer" class="button">Timer</button></li>
                 <li><p id="time2play"></p></li>
+                </div>
+                <div class="styles">
                 <li><button onclick="chooseStyle(this.id)" id="circles" class="button">Circles</button></li>
                 <li><button onclick="chooseStyle(this.id)" id="squares" class="button">Squares</button></li>
                 <li><button onclick="chooseStyle(this.id)" id="round_squares" class="button">Round Squares</button></li>
+                </div>
+                <div class="modes">
                 <li><button onclick="chooseMode(this.id)" id="normal"  class="button">Normal</button></li>
                 <li><button onclick="chooseMode(this.id)" id="hardcore"  class="button">Hardcore</button></li>
                 <li><button onclick="extraColor(this.id)" id="extra"  class="button">Extra Color</button></li>
+                </div>
                 <!-- <li><button onclick="chooseMode()" class="button">Endless</button></li> -->
             </ul>
         </nav>
