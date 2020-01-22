@@ -38,7 +38,7 @@ function get2ndClass(element) {
 function toggleActive (id) {
     let toggler = document.getElementById(id);
     toggler.classList.toggle("active");
-    newGame();
+
 }
 
 
@@ -214,11 +214,14 @@ function changeStyle(className) {
     }
 }
 
-function showRoundSquaresButton (){
+function firstShowRoundSquaresButton (){
     if (wins == 3) {
         alert("New style available!")
         document.getElementById("round_squares").style.display = "inline-block"
-    } else if (wins > 3) {
+    }
+}
+function showRoundSquaresButton (){
+    if (wins > 3) {
         document.getElementById("round_squares").style.display = "inline-block"
     }
 }
@@ -270,13 +273,19 @@ function extraColor(id){
         console.log(colors)
     }
 
+    newGame();
+
 }
 
-function showExtraColorButton (){
+function firstShowExtraColorButton () {
     if (wins == 6) {
         alert("New color available!")
         document.getElementById("extra").style.display = "inline-block"
-    } else if (wins > 6) {
+    }
+}
+
+function showExtraColorButton (){
+ if (wins > 6) {
         document.getElementById("extra").style.display = "inline-block"
     }
 }
@@ -467,14 +476,7 @@ function feedback( black, white, el_name ) {
         for (i = 0; i < black; i++) {
             createDot("black", el_name)
         }
-        showSolution();
-        setNewGameButton();
-        endGameText("You Win!", "Cracked the code!");
-        endTime();
-        wins++;
-        winsShow();
-        stopTimer();
-        guesses()
+        winState()
     }
         else {
             for (i = 0; i < black; i++) {
@@ -484,6 +486,19 @@ function feedback( black, white, el_name ) {
                 createDot("white", el_name)
             }
         }
+}
+
+function winState (){
+    showSolution();
+    setNewGameButton();
+    endGameText("You Win!", "Cracked the code!");
+    endTime();
+    wins++;
+    winsShow();
+    stopTimer();
+    guesses()
+    firstShowExtraColorButton()
+    firstShowRoundSquaresButton ()
 }
 
 function createDot (color , el_name) {

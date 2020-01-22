@@ -213,12 +213,14 @@ aside blockquote {
 
 menu{
     border: solid black 2px;
+    padding-inline-start: 0;
 }
 
 menu .gameplay {
     text-align: center;
     position: relative;
     top: 15%;
+    margin: 0 auto;
 }
 
 menu .gameplay .button{
@@ -282,6 +284,7 @@ button#extra {
     color: black;
     border: black solid 2px;
     display: none;
+
 
 }
 
