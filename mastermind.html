@@ -12,25 +12,25 @@
         <header>
             <h1 class="title"> Mastermind </h1>
         </header>
-        <nav>
-            <ul>
+        <menu>
+            <div class="gameplay">
                 <div class="timing">
-                <li><button onclick="activateTimer(this.id)" id="timer" class="button">Timer</button></li>
-                <li><p id="time2play"></p></li>
+                    <button onclick="activateTimer(this.id)" id="timer" class="button">Timer</button>
+                    <p id="time2play"></p>
                 </div>
                 <div class="styles">
-                <li><button onclick="chooseStyle(this.id)" id="circles" class="button">Circles</button></li>
-                <li><button onclick="chooseStyle(this.id)" id="squares" class="button">Squares</button></li>
-                <li><button onclick="chooseStyle(this.id)" id="round_squares" class="button">Round Squares</button></li>
+                    <button onclick="chooseStyle(this.id)" id="circles" class="button">Circles</button>
+                    <button onclick="chooseStyle(this.id)" id="squares" class="button">Squares</button>
+                    <button onclick="chooseStyle(this.id)" id="round_squares" class="button">Round Squares</button>
                 </div>
                 <div class="modes">
-                <li><button onclick="chooseMode(this.id)" id="normal"  class="button">Normal</button></li>
-                <li><button onclick="chooseMode(this.id)" id="hardcore"  class="button">Hardcore</button></li>
-                <li><button onclick="extraColor(this.id)" id="extra"  class="button">Extra Color</button></li>
+                    <button onclick="chooseMode(this.id)" id="normal"  class="button">Normal</button>
+                    <button onclick="chooseMode(this.id)" id="hardcore"  class="button">Hardcore</button>
+                    <button onclick="extraColor(this.id)" id="extra"  class="button">Extra Color</button>
                 </div>
+            </div>
                 <!-- <li><button onclick="chooseMode()" class="button">Endless</button></li> -->
-            </ul>
-        </nav>
+        </menu>
         <section id="playfield">
             <div class="playfield">
                 <div class="oplossing">
